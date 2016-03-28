@@ -12,6 +12,42 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require gsdk
+//= require bootstrap-sprockets
+//= require bootstrap
 //= require turbolinks
+
+//= require gsdk
+//= require gsdk-radio
+//= require gsdk-checkbox
+//= require gsdk-bootstrapswitch
+//= require get-shit-done
+//= require hipster-cards
+
 //= require_tree .
+
+
+$(document).ready(function(){
+  var transparentDemo = true;
+  var fixedTop = false;
+
+  $(window).scroll(function(e) {
+      oVal = ($(window).scrollTop() / 170);
+      $(".blur").css("opacity", oVal);
+
+  });
+
+  var $container = $('.masonry-container');
+
+    doc_width = $(document).width();
+
+    if (doc_width >= 768){
+        $container.masonry({
+            itemSelector        : '.card-box',
+            columnWidth         : '.card-box',
+            transitionDuration  : 0
+        });
+    } else {
+        $('.mas-container').removeClass('mas-container').addClass('row');
+    }
+
+})
